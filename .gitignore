@@ -1,0 +1,12 @@
+# Ignorar a pasta venv
+venv/
+
+# Ignorar o arquivo .env
+.env
+
+# Ignorar arquivos .pyc
+*.pyc
+__pycache__/
+
+# Arquivo .gitignore
+.ipynb_checkpoints/
