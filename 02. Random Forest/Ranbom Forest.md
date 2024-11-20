@@ -1,17 +1,18 @@
 # Estudo Especial: Random Forest
+Este artigo, temos um resumo orientado no entendimento teórico do funcionamento, aplicação, vantagens e outros detalhamentos do Random Forest, que auxiliam no melhor entendimendo do módulo prátido contídos nos exemplos. 
 
-## O que é Random Forest?
+## 01. O que é Random Forest?
 
 O Random Forest é um algoritmo de aprendizado de máquina baseado em árvores de decisão. Ele faz parte da classe dos algoritmos ensemble, combinando várias árvores de decisão para produzir uma previsão mais robusta e confiável.
 
 O algoritmo utiliza o conceito de bagging (Bootstrap Aggregating), onde várias árvores de decisão são treinadas em subconjuntos aleatórios dos dados, e as previsões são combinadas (por média para regressão ou votação majoritária para classificação).
 
-## Características principais:
+### 1.1. Características principais:
 - Redução de overfitting: Por combinar várias árvores, ele reduz os erros gerados por overfitting de uma única árvore de decisão.
 - Robustez: Funciona bem com dados ruidosos e não requer grande ajuste de hiperparâmetros.
 - Versatilidade: Pode ser usado para classificação e regressão.
 
-## Contextos em que Random Forest é indicado
+### Contextos em que Random Forest é indicado
 1. Tarefas de classificação e regressão com dados tabulares:
 Exemplos: diagnóstico médico, análise financeira, classificação de clientes.
 
@@ -24,7 +25,7 @@ Quando o objetivo é evitar underfitting, mesmo com alta variabilidade nos dados
 4. Conjuntos de dados com valores ausentes:
 Random Forest lida bem com valores ausentes e suporta dados heterogêneos.
 
-## Quando o Random Forest não é indicado
+### Quando o Random Forest não é indicado
 1. Problemas de alta dimensionalidade:
 Quando há muitas variáveis irrelevantes, o desempenho pode ser impactado negativamente.
 
@@ -34,7 +35,7 @@ Random Forest é considerado uma caixa preta, sendo difícil explicar o impacto 
 3. Grandes volumes de dados:
 Random Forest pode ser lento para treinamento em datasets massivos devido ao número de árvores e cálculos complexos.
 
-## Bibliotecas em Python que implementam Random Forest
+## 03. Bibliotecas em Python que implementam Random Forest
 
 1. Scikit-learn: Implementação popular e fácil de usar.
 2. XGBoost: Possui Random Forest como um dos modos de operação.
