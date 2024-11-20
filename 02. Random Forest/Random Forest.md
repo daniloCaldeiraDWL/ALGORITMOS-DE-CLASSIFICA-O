@@ -3,9 +3,12 @@ Este artigo, temos um resumo orientado no entendimento teórico do funcionamento
 
 ## 01. O que é Random Forest?
 
-O Random Forest é um algoritmo de aprendizado de máquina baseado em árvores de decisão. Ele faz parte da classe dos algoritmos ensemble, combinando várias árvores de decisão para produzir uma previsão mais robusta e confiável.
+O Random Forest é um algoritmo de aprendizado de máquina baseado em árvores de decisão. Ele faz parte da classe dos algoritmos ensemble (Algoritmos ensemble são métodos de aprendizado de máquina que combinam múltiplos modelos individuais (como árvores de decisão) para melhorar a precisão e a robustez das previsões.), combinando várias árvores de decisão para produzir uma previsão mais robusta e confiável.
 
 O algoritmo utiliza o conceito de bagging (Bootstrap Aggregating), onde várias árvores de decisão são treinadas em subconjuntos aleatórios dos dados, e as previsões são combinadas (por média para regressão ou votação majoritária para classificação).
+
+![TensorFlow Decision Forests](../img/Random Forest 03.gif)
+
 
 ### 1.1. Características principais:
 - Redução de overfitting: Por combinar várias árvores, ele reduz os erros gerados por overfitting de uma única árvore de decisão.
