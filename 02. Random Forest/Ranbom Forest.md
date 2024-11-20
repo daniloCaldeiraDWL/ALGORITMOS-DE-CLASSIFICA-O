@@ -12,7 +12,7 @@ O algoritmo utiliza o conceito de bagging (Bootstrap Aggregating), onde várias 
 - Robustez: Funciona bem com dados ruidosos e não requer grande ajuste de hiperparâmetros.
 - Versatilidade: Pode ser usado para classificação e regressão.
 
-### Contextos em que Random Forest é indicado
+### 1.2 Contextos em que Random Forest é indicado
 1. Tarefas de classificação e regressão com dados tabulares:
 Exemplos: diagnóstico médico, análise financeira, classificação de clientes.
 
@@ -25,7 +25,7 @@ Quando o objetivo é evitar underfitting, mesmo com alta variabilidade nos dados
 4. Conjuntos de dados com valores ausentes:
 Random Forest lida bem com valores ausentes e suporta dados heterogêneos.
 
-### Quando o Random Forest não é indicado
+### 1.3 Quando o Random Forest não é indicado
 1. Problemas de alta dimensionalidade:
 Quando há muitas variáveis irrelevantes, o desempenho pode ser impactado negativamente.
 
@@ -35,7 +35,7 @@ Random Forest é considerado uma caixa preta, sendo difícil explicar o impacto 
 3. Grandes volumes de dados:
 Random Forest pode ser lento para treinamento em datasets massivos devido ao número de árvores e cálculos complexos.
 
-## 03. Bibliotecas em Python que implementam Random Forest
+### 1.4 Bibliotecas em Python que implementam Random Forest
 
 1. Scikit-learn: Implementação popular e fácil de usar.
 2. XGBoost: Possui Random Forest como um dos modos de operação.
@@ -43,7 +43,7 @@ Random Forest pode ser lento para treinamento em datasets massivos devido ao nú
 4. H2O.ai: Alternativa distribuída para grandes datasets.
 
 ---
-## O Que São Algoritmos Ensemble?
+## 02. O Que São Algoritmos Ensemble?
 Algoritmos ensemble são métodos de aprendizado de máquina que combinam as previsões de múltiplos modelos (indivíduos) para criar um modelo mais robusto e preciso. A ideia central é que a diversidade entre os modelos ajuda a compensar os erros de cada um individualmente, levando a melhores resultados.
 
 O termo "ensemble" significa conjunto ou coletivo, refletindo o princípio de unir vários modelos para formar uma solução mais forte.
@@ -51,18 +51,18 @@ O termo "ensemble" significa conjunto ou coletivo, refletindo o princípio de un
 Algoritmos ensemble são técnicas avançadas que unem a força de múltiplos modelos para resolver problemas complexos com maior precisão. Eles são amplamente utilizados em problemas práticos e competições de aprendizado de máquina devido à sua capacidade de lidar com dados ruidosos, evitar overfitting e melhorar previsões.
 
 ---
-## Tunagem de Hiperparâmetros
+## 03. Tunagem de Hiperparâmetros
 
-### O Que é Tunar Hiperparâmetros?
+**O Que é Tunar Hiperparâmetros?**
 
 **Tunar hiperparâmetros** significa ajustar os parâmetros de configuração de um modelo de aprendizado de máquina para melhorar seu desempenho em uma tarefa específica. Esses parâmetros não são aprendidos diretamente pelos dados durante o treinamento; eles devem ser definidos antes do processo de aprendizado.
 
-### Diferença entre Parâmetros e Hiperparâmetros
+### 3.1 Diferença entre Parâmetros e Hiperparâmetros
 **Parâmetros:** São aprendidos pelo modelo durante o treinamento. 
 Exemplo: pesos de uma rede neural, coeficientes de uma regressão linear.
 **Hiperparâmetros:** São definidos manualmente ou por técnicas de otimização e influenciam diretamente o processo de aprendizado. Exemplo: número de árvores em um Random Forest.
 
-### Hiperparâmetros no Random Forest
+### 3.2 Hiperparâmetros no Random Forest
 No caso do Random Forest, os principais hiperparâmetros incluem:
 
 1. n_estimators:
@@ -96,14 +96,14 @@ Determina se o modelo deve usar amostragem com reposição ao criar as árvores.
 True (default) ou False.
 
 
-### Por Que Tunar Hiperparâmetros?
+### 3.3 Por Que Tunar Hiperparâmetros?
 A tunagem de hiperparâmetros é essencial porque:
 
 1. Melhora a generalização do modelo.
 2. Reduz o risco de overfitting (quando o modelo aprende muito bem o treinamento, mas não generaliza para novos dados).
 3. Ajusta o modelo para desempenho ótimo.
 
-### Como Fazer a Tunagem de Hiperparâmetros?
+### 3.4 Como Fazer a Tunagem de Hiperparâmetros?
 Existem várias abordagens:
 
 1. Busca manual:
@@ -127,26 +127,26 @@ Utiliza métodos probabilísticos para encontrar hiperparâmetros ideais.
 Exemplos: Bibliotecas como Optuna ou Hyperopt.
 
 
-### Resumo
+### 3.5 Resumo
 Tunagem de hiperparâmetros é o processo de ajustar configurações do modelo para atingir o melhor desempenho. No Random Forest, isso significa ajustar variáveis como número de árvores, profundidade máxima e tamanho das folhas. Métodos como Grid Search e Random Search são amplamente usados para realizar essa tarefa.
 
 ---
 
-## Random Forest Regressor
+### 04. Random Forest Regressor
 
-### O Que é o Random Forest Regressor?
+### 4.1 O Que é o Random Forest Regressor?
 O Random Forest Regressor é a versão do algoritmo Random Forest usada para resolver problemas de regressão, ou seja, para prever valores numéricos contínuos. Assim como o Random Forest Classifier combina várias árvores de decisão para classificação, o Random Forest Regressor usa o mesmo princípio de ensemble para prever um valor numérico com base na média das previsões de múltiplas árvores de decisão.
 
 O Random Forest Regressor é uma ferramenta poderosa e confiável para tarefas de regressão, oferecendo boa performance em muitos cenários, especialmente quando comparado a modelos mais simples, como regressão linear.
 
-### Principais Características
+### 4.2 Principais Características
 1. Redução de overfitting: Combinar várias árvores ajuda a suavizar erros de árvores individuais.
 
 2. Robustez: Funciona bem mesmo em presença de dados ruidosos ou relações não lineares.
 
 3. Versatilidade: Pode lidar com uma ampla variedade de tarefas de regressão.
 
-### Casos de Uso
+### 4.3 Casos de Uso
 O Random Forest Regressor é amplamente utilizado em situações onde é necessário prever valores contínuos com boa precisão. Exemplos:
 
 1. Previsão de preços:
@@ -161,4 +161,7 @@ Estimativa de retorno de investimentos ou previsão de risco.
 4. Ciências ambientais:
 Previsão de níveis de poluição, mudanças climáticas ou produção agrícola.
 
+---
+## 05. Avaliação de Modelos de Classificação
+Avaliar um modelo de classificação significa medir o quão bem ele está funcionando em relação aos dados de teste. As métricas como acurácia e relatório de classificação, são úteis, mas há outras métricas e gráficos que podem complementar a análise, fornecendo uma visão mais detalhada do desempenho do modelo.
 
