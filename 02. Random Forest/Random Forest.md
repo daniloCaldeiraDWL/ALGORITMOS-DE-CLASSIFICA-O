@@ -237,8 +237,18 @@ O log loss mede a incerteza das previsões do modelo, penalizando previsões inc
     Preencher ou excluir valores ausentes em variáveis categóricas (ex.: Embarked).
     2. Codificação de Variáveis Categóricas: Converta variáveis como Sexo em valores numéricos (ex.: One-Hot Encoding ou Label Encoding).
     3. Escalonamento de Variáveis Numéricas: Normalize ou padronize as variáveis numéricas (ex.: Fare, Age) para garantir melhor desempenho de alguns modelos.
+        
+        Normalização dos dados a depender no algoritmo (SVM, KNN, Regressão Logística, Análise Discriminante Linear (LDA), Redes Neurais, Perceptron, Regressão Ridge / Lasso)
+
+        Obeservação: não é necessário normalizar os dados para aplicar o algoritmo Random Forest. Isso se deve ao fato de que o Random Forest é um modelo baseado em árvores de decisão, que são invariantes à escala dos dados. Ou seja, as árvores de decisão não são afetadas por diferenças de escala ou unidade das variáveis.
+
+        A normalização (ou padronização) ajuda a garantir que todas as variáveis tenham a mesma escala e não dominem o cálculo da distância, a otimização ou as penalidades.
+
     4. Criação de Novas Features (Feature Engineering): processo de enriquecimento de features. Este processo é muito interessante para termos melhores resultados. 
     5. Remoção de Colunas Desnecessárias: Excluir colunas irrelevantes para o modelo.
+
+    
+
 
 5. Divisão do Dataset
     1. Divisão em Features (X) e Target (y)
@@ -312,6 +322,10 @@ O log loss mede a incerteza das previsões do modelo, penalizando previsões inc
     Salve o modelo treinado para uso posterior:
     Bibliotecas: pickle ou joblib.
     Exemplo: joblib.dump(model, "titanic_model.pkl").
+
+    O formato .pkl (abreviação de pickle) é um arquivo usado para serialização e desserialização de objetos Python, permitindo salvar objetos em disco para reutilizá-los posteriormente. Ele é criado usando o módulo pickle da biblioteca padrão do Python.
+
+    Serialização é o processo de transformar um objeto Python (como um dicionário, lista, modelo treinado, etc.) em uma sequência de bytes que pode ser armazenada em um arquivo ou transmitida através de redes. A desserialização é o processo inverso: carregar os dados serializados e reconstruir o objeto original.
 
 14. Implementação e Previsões em Dados Novos
     - Carregue o modelo salvo.
@@ -438,6 +452,91 @@ A divisão do dataset é um dos pilares da confiabilidade dos modelos de machine
 
 
 ---
+## 08. RandomForestClassifier - Hiperparâmetros Explicados
+
+O **RandomForestClassifier** é um modelo de aprendizado supervisionado baseado em florestas aleatórias, combinando múltiplas árvores de decisão para aumentar a precisão e evitar overfitting. Abaixo estão os hiperparâmetros principais e suas explicações:
+
+### 1. `n_estimators`
+- **Descrição:** Número de árvores no conjunto.
+- **Default:** 100.
+- **Impacto:** Mais árvores aumentam a precisão, mas também o tempo de processamento.
+
+### 2. `criterion`
+- **Descrição:** Função para medir a qualidade da divisão.
+- **Opções:** 
+  - `"gini"` (default): Usa o índice de Gini.
+  - `"entropy"`: Usa a entropia para calcular o ganho de informação.
+- **Impacto:** Muda o critério de escolha das divisões durante o treinamento.
+
+### 3. `max_depth`
+- **Descrição:** Profundidade máxima das árvores.
+- **Default:** `None` (cresce até que todas as folhas estejam puras ou contenham menos que `min_samples_split` amostras).
+- **Impacto:** Reduz overfitting e melhora a eficiência computacional.
+
+### 4. `min_samples_split`
+- **Descrição:** Número mínimo de amostras exigido para dividir um nó.
+- **Default:** 2.
+- **Impacto:** Valores maiores restringem o crescimento das árvores.
+
+### 5. `min_samples_leaf`
+- **Descrição:** Número mínimo de amostras exigido em uma folha.
+- **Default:** 1.
+- **Impacto:** Evita que o modelo fique muito específico (overfitting).
+
+### 6. `min_weight_fraction_leaf`
+- **Descrição:** Mesma ideia de `min_samples_leaf`, mas considera o peso total das amostras.
+- **Default:** 0.0.
+
+### 7. `max_features`
+- **Descrição:** Número máximo de recursos (features) considerados em cada divisão.
+- **Opções:**
+  - `"sqrt"` (default): Usa a raiz quadrada do número total de features.
+  - `"log2"`: Usa o logaritmo base 2.
+  - `None`: Usa todas as features.
+  - Inteiro/float: Número absoluto ou fração de features.
+- **Impacto:** Controla a aleatoriedade e reduz correlação entre árvores.
+
+### 8. `max_leaf_nodes`
+- **Descrição:** Número máximo de folhas em cada árvore.
+- **Default:** `None` (sem limite).
+
+### 9. `bootstrap`
+- **Descrição:** Indica se as amostras para cada árvore devem ser retiradas com reposição.
+- **Default:** `True`.
+
+### 10. `oob_score`
+- **Descrição:** Calcula a acurácia com amostras fora do conjunto de bootstrap (out-of-bag).
+- **Default:** `False`.
+
+### 11. `n_jobs`
+- **Descrição:** Número de CPUs usadas para treinamento e previsão.
+- **Default:** `None` (1 CPU).
+- **Opções:**
+  - `-1`: Usa todas as CPUs disponíveis.
+
+### 12. `random_state`
+- **Descrição:** Semente para o gerador de números aleatórios.
+- **Default:** `None`.
+
+### 13. `verbose`
+- **Descrição:** Controla o nível de detalhamento do output.
+- **Default:** 0 (sem saída).
+
+### 14. `warm_start`
+- **Descrição:** Se `True`, reutiliza as árvores treinadas previamente ao adicionar mais estimadores.
+- **Default:** `False`.
+
+### 15. `class_weight`
+- **Descrição:** Peso associado a cada classe, usado para lidar com desbalanceamento.
+- **Opções:**
+  - `None` (default): Sem pesos.
+  - `"balanced"`: Ajusta pesos inversamente proporcionais às frequências das classes.
+  - `"balanced_subsample"`: Calcula pesos para cada amostra de bootstrap.
+  - Dicionário: Define pesos específicos.
+
+### Resumo
+O **RandomForestClassifier** é altamente configurável, permitindo ajustes que equilibram desempenho e complexidade. Parâmetros como `n_estimators`, `max_depth`, e `max_features` controlam a flexibilidade e robustez do modelo. Já ajustes como `class_weight` e `bootstrap` ajudam a lidar com desbalanceamento e variabilidade. Escolher os hiperparâmetros corretos pode melhorar significativamente o desempenho e eficiência do modelo.
+
 
 ## 06 Conclusão
 ### 6.1 Considerações Finais
