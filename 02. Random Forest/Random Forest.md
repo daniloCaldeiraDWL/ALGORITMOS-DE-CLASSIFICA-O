@@ -7,7 +7,7 @@ O Random Forest é um algoritmo de aprendizado de máquina baseado em árvores d
 
 O algoritmo utiliza o conceito de bagging (Bootstrap Aggregating), onde várias árvores de decisão são treinadas em subconjuntos aleatórios dos dados, e as previsões são combinadas (por média para regressão ou votação majoritária para classificação).
 
-![TensorFlow Decision Forests](../img/Random Forest 03.gif)
+![TensorFlow Decision Forests](C:\Users\danil\OneDrive - DWL\006 - DATA MINING\ALGORITMOS DE CLASSIFICAÇÃO\img\Random Forest 03.gif)
 
 
 ### 1.1. Características principais:
